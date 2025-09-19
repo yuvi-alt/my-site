@@ -1,154 +1,60 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Yuvi — Portfolio</title>
-  <link rel="stylesheet" href="styles.css"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yuvi Portfolio</title>
+  <link rel="stylesheet" href="styles.css?v=2" />
 </head>
 <body>
-  <!-- Header -->
-  <header class="nav">
-    <div class="container nav-inner">
-      <div class="brand">Yuvi<span class="dot">.</span></div>
-      <nav>
-        <a href="#home">Home</a>
-        <a href="#games">Games</a>
-        <a href="#skills">Skills</a>
-        <a href="#twitch">Twitch</a>
-        <a href="#contact" class="btn small">Contact</a>
-        <button id="themeBtn" class="chip" aria-label="Toggle theme">🌙</button>
-      </nav>
-    </div>
-  </header>
+  <!-- Navigation -->
+  <nav class="nav">
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
-  <main>
-    <!-- Hero -->
-    <section id="home" class="hero">
-      <div class="container grid2">
-        <div class="hero-copy">
-          <p class="eyebrow">Hello, I’m</p>
-          <h1>Yuvi</h1>
-          <p class="sub">I build apps, learn new tech, and have fun gaming. This site is a clean one-pager you can view on any device.</p>
-          <div class="actions">
-            <a href="#games" class="btn">Games I play</a>
-            <a href="#contact" class="btn ghost">Say hi</a>
-          </div>
-        </div>
-        <div class="hero-card glass">
-          <img class="hero-img" src="https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1200&auto=format&fit=crop" alt="Controller">
-          <div class="hero-stats">
-            <div><span class="num">10+</span><span>Projects</span></div>
-            <div><span class="num">3</span><span>Stacks</span></div>
-            <div><span class="num">∞</span><span>Energy</span></div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <!-- Home -->
+  <section id="home" class="section">
+    <h1>Hi, I'm Yuvi 👋</h1>
+    <p>Welcome to my modern personal portfolio website.</p>
+  </section>
 
-    <!-- Games -->
-    <section id="games" class="section">
-      <div class="container">
-        <h2>Games I play</h2>
-        <p class="muted">My favourites right now 🎮</p>
-        <div class="cards">
-          <article class="card">
-            <div class="card-top">
-              <div class="badge">Competitive</div>
-              <h3>Valorant</h3>
-            </div>
-            <p>Tactical shooter. Agents, comms, clutches.</p>
-            <ul class="tags"><li>Duelist</li><li>Controller</li><li>Ascent</li></ul>
-          </article>
+  <!-- About -->
+  <section id="about" class="section">
+    <h2>About Me</h2>
+    <p>
+      My name is Yuvi. I’m passionate about tech, gaming, and streaming culture.
+      I play <strong>Valorant</strong> 🎮, watch Twitch streams, and enjoy learning new coding skills.
+    </p>
+  </section>
 
-          <article class="card">
-            <div class="card-top">
-              <div class="badge">Story</div>
-              <h3>God of War</h3>
-            </div>
-            <p>Big set-pieces, tight combat, amazing narrative.</p>
-            <ul class="tags"><li>Single-player</li><li>Action</li><li>PS</li></ul>
-          </article>
+  <!-- Skills -->
+  <section id="skills" class="section">
+    <h2>Skills</h2>
+    <ul>
+      <li>Java</li>
+      <li>Python</li>
+      <li>SQL</li>
+      <li>AWS & Cloud Tools</li>
+      <li>Web Development</li>
+    </ul>
+  </section>
 
-          <article class="card">
-            <div class="card-top">
-              <div class="badge">Open World</div>
-              <h3>GTA V / Online</h3>
-            </div>
-            <p>Free roam chaos with friends, heists & mods.</p>
-            <ul class="tags"><li>PC</li><li>Co-op</li><li>Sandbox</li></ul>
-          </article>
-        </div>
-      </div>
-    </section>
+  <!-- Contact -->
+  <section id="contact" class="section">
+    <h2>Contact</h2>
+    <p>Feel free to get in touch!</p>
+    <p>Email: <a href="mailto:yuvraj.bhawsar@gmail.com">yuvraj.bhawsar@gmail.com</a></p>
+  </section>
 
-    <!-- Skills -->
-    <section id="skills" class="section soft">
-      <div class="container">
-        <h2>Skills</h2>
-        <div class="pill-row">
-          <span class="pill">Java</span>
-          <span class="pill">Spring Boot</span>
-          <span class="pill">JavaFX</span>
-          <span class="pill">Python</span>
-          <span class="pill">HTML</span>
-          <span class="pill">CSS</span>
-          <span class="pill">JavaScript</span>
-          <span class="pill">APIs</span>
-          <span class="pill">Git</span>
-        </div>
-        <div class="grid2 mt">
-          <div class="panel">
-            <h3>What I’m building</h3>
-            <ul class="ticks">
-              <li>Clean REST APIs (Spring Boot + Python Flask)</li>
-              <li>Modern UIs (JavaFX / Tailwind-style CSS)</li>
-              <li>Small tools & games for learning</li>
-            </ul>
-          </div>
-          <div class="panel">
-            <h3>What’s next</h3>
-            <ul class="ticks">
-              <li>Deploying full-stack apps</li>
-              <li>More animations & 3D effects</li>
-              <li>Exploring Twitch bots & overlays 🎥</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
+  <footer>
+    <p>&copy; 2025 Yuvi. Built with ❤️ and VS Code.</p>
+  </footer>
 
-    <!-- Twitch -->
-    <section id="twitch" class="section">
-      <div class="container">
-        <h2>Streaming & Chill</h2>
-        <p class="muted">When I’m not coding, I’m usually catching Twitch streams — Valorant clutches, story games, or just chatting.  
-          Feel free to <a href="#contact">get in touch</a> if you hang out there too 👾.</p>
-        <div class="cards">
-          <article class="card">
-            <h3>Fav Streamers</h3>
-            <ul class="ticks">
-              <li>Tarek (Valorant)</li>
-              <li>Pokimane (Variety)</li>
-              <li>Friends & small streamers ✨</li>
-            </ul>
-          </article>
-          <article class="card">
-            <h3>What I enjoy</h3>
-            <ul class="ticks">
-              <li>Subathons 🎉</li>
-              <li>Chatting with communities</li>
-              <li>Discovering underrated streamers</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" class="section">
-      <div class="container">
-        <h2>Get in touch</h2>
-        <p class="muted">Whether it’s games, code, or Twitch streams — feel free to
+  <script src="script.js"></script>
+</body>
+</html>
