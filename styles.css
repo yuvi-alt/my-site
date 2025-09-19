@@ -77,4 +77,6 @@ h2{font-size:1.8rem;margin:0 0 12px}
   .cards{grid-template-columns:1fr}
   .nav nav a{display:none}
   .btn.small, .chip{display:inline-block}
+/* Make anchored sections stop *below* the sticky header */
+section { scroll-margin-top: 90px; }   /* adjust if your header is taller/shorter */
 }
