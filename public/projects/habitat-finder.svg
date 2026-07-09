@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" fill="none">
+  <rect width="1280" height="720" fill="#eef4ff"/>
+  <rect x="60" y="60" width="1160" height="600" rx="24" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+  <rect x="100" y="120" width="480" height="320" rx="16" fill="#dbeafe"/>
+  <circle cx="280" cy="260" r="60" fill="#2563eb" opacity="0.15"/>
+  <circle cx="340" cy="220" r="40" fill="#2563eb" opacity="0.25"/>
+  <circle cx="220" cy="300" r="35" fill="#059669" opacity="0.2"/>
+  <rect x="640" y="140" width="520" height="36" rx="8" fill="#f1f5f9"/>
+  <rect x="640" y="200" width="400" height="24" rx="6" fill="#f1f5f9"/>
+  <rect x="640" y="240" width="320" height="24" rx="6" fill="#f1f5f9"/>
+  <rect x="640" y="300" width="200" height="32" rx="8" fill="#2563eb" opacity="0.12"/>
+  <text x="100" y="520" fill="#0f172a" font-family="system-ui,sans-serif" font-size="32" font-weight="700">Habitat Finder</text>
+  <text x="100" y="560" fill="#64748b" font-family="system-ui,sans-serif" font-size="18">London neighbourhood research</text>
+</svg>

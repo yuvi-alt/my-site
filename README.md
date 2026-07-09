@@ -1,36 +1,39 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Yuvraj Bhavsar — Portfolio
 
-## Getting Started
+Professional software engineering portfolio built with Next.js, TypeScript, and Tailwind CSS.
 
-First, run the development server:
+Live site: [https://yuvi-alt.github.io/my-site/](https://yuvi-alt.github.io/my-site/)
+
+## Local development
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000/](http://localhost:3000/) in development.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+```
 
-## Learn More
+Static output is generated in the `out/` folder.
 
-To learn more about Next.js, take a look at the following resources:
+## Deploy to GitHub Pages
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Push this project to the `yuvi-alt/my-site` repository on the `main` branch.
+2. In GitHub repo settings, set **Pages** source to **GitHub Actions**.
+3. The workflow in `.github/workflows/deploy.yml` builds and deploys automatically on every push to `main`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Update content
 
-## Deploy on Vercel
+Edit [`src/data/content.ts`](src/data/content.ts) to update experience, projects, skills, and contact details.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Assets
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Resume: [`public/resume.pdf`](public/resume.pdf)
+- Project previews: [`public/projects/`](public/projects/)
+
+Replace the SVG previews with PNG screenshots anytime without changing component code.
