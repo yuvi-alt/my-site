@@ -1,6 +1,9 @@
 import type { NextConfig } from "next";
 
-const basePath = process.env.NODE_ENV === "production" ? "/my-site" : "";
+// Custom domain is served at the site root. Keep /my-site only for github.io subpath builds.
+const basePath =
+  process.env.NEXT_PUBLIC_BASE_PATH ??
+  (process.env.NODE_ENV === "production" ? "/my-site" : "");
 
 const nextConfig: NextConfig = {
   output: "export",

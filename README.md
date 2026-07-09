@@ -28,6 +28,32 @@ Static output is generated in the `out/` folder.
 3. Choose branch **`gh-pages`** and folder **`/ (root)`**.
 4. The workflow in `.github/workflows/deploy.yml` builds the site and publishes the `out/` folder to `gh-pages` on every push to `main`.
 
+## Custom domain
+
+Production builds use an empty base path so the site works at your own domain root (e.g. `https://yourdomain.com/`).
+
+1. Buy a domain (Cloudflare, Namecheap, Google Domains, etc.).
+2. In **Settings → Pages → Custom domain**, enter your domain (e.g. `www.yourdomain.com`) and click **Save**.
+3. At your domain registrar, add DNS records:
+
+**For `www.yourdomain.com` (recommended):**
+```
+CNAME   www   yuvi-alt.github.io
+```
+
+**For apex `yourdomain.com` (no www):**
+```
+A   @   185.199.108.153
+A   @   185.199.109.153
+A   @   185.199.110.153
+A   @   185.199.111.153
+```
+
+4. Wait for DNS to propagate (up to 24 hours, often faster).
+5. Enable **Enforce HTTPS** in GitHub Pages settings once DNS is verified.
+
+Your portfolio will be live at your custom domain. The `yuvi-alt.github.io/my-site/` URL may not load assets correctly after this change — use the custom domain as your main link.
+
 ## Update content
 
 Edit [`src/data/content.ts`](src/data/content.ts) to update experience, projects, skills, and contact details.
