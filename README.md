@@ -24,8 +24,9 @@ Static output is generated in the `out/` folder.
 ## Deploy to GitHub Pages
 
 1. Push this project to the `yuvi-alt/my-site` repository on the `main` branch.
-2. In GitHub repo settings, set **Pages** source to **GitHub Actions**.
-3. The workflow in `.github/workflows/deploy.yml` builds and deploys automatically on every push to `main`.
+2. In GitHub repo **Settings → Pages**, set **Source** to **Deploy from a branch**.
+3. Choose branch **`gh-pages`** and folder **`/ (root)`**.
+4. The workflow in `.github/workflows/deploy.yml` builds the site and publishes the `out/` folder to `gh-pages` on every push to `main`.
 
 ## Update content
 
