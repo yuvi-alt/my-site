@@ -7,6 +7,7 @@ import type { ProjectCategory } from "@/lib/types";
 import { FadeIn } from "@/components/FadeIn";
 import { IconExternal, IconFolder } from "@/components/Icons";
 import { TechBadge } from "@/components/TechBadge";
+import { withBasePath } from "@/lib/paths";
 
 const filters: Array<ProjectCategory | "All"> = ["All", ...projectCategories];
 
@@ -56,7 +57,7 @@ export function Projects() {
         <div className="projects-showcase">
           {filteredProjects.map((project, index) => {
             const expanded = expandedId === project.id;
-            const previewSrc = project.logo ?? project.image;
+            const previewSrc = withBasePath(project.logo ?? project.image);
             const isLogo = Boolean(project.logo);
 
             return (
