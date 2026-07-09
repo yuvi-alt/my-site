@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" fill="none">
+  <rect width="1280" height="720" fill="#faf5ff"/>
+  <rect x="60" y="60" width="1160" height="600" rx="24" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+  <rect x="100" y="120" width="200" height="200" rx="16" fill="#ede9fe"/>
+  <rect x="320" y="120" width="200" height="200" rx="16" fill="#fce7f3"/>
+  <rect x="540" y="120" width="200" height="200" rx="16" fill="#d1fae5"/>
+  <rect x="760" y="120" width="200" height="200" rx="16" fill="#fef3c7"/>
+  <rect x="100" y="360" width="860" height="48" rx="10" fill="#f8fafc" stroke="#e2e8f0"/>
+  <rect x="100" y="440" width="200" height="44" rx="10" fill="#7c3aed" opacity="0.85"/>
+  <text x="100" y="540" fill="#0f172a" font-family="system-ui,sans-serif" font-size="32" font-weight="700">Make a Dish</text>
+  <text x="100" y="580" fill="#64748b" font-family="system-ui,sans-serif" font-size="18">Homemade food marketplace</text>
+</svg>
