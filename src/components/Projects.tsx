@@ -1,136 +1,114 @@
 "use client";
 
 import Image from "next/image";
-import { useMemo, useState } from "react";
-import { projectCategories, projects } from "@/data/content";
-import type { ProjectCategory } from "@/lib/types";
+import { useState } from "react";
+import { projects } from "@/data/content";
 import { FadeIn } from "@/components/FadeIn";
 import { IconExternal, IconFolder } from "@/components/Icons";
 import { TechBadge } from "@/components/TechBadge";
 import { withBasePath } from "@/lib/paths";
 
-const filters: Array<ProjectCategory | "All"> = ["All", ...projectCategories];
+const PREVIEW_COUNT = 3;
 
 export function Projects() {
-  const [activeFilter, setActiveFilter] = useState<ProjectCategory | "All">("All");
   const [expandedId, setExpandedId] = useState<string | null>(null);
-
-  const filteredProjects = useMemo(() => {
-    if (activeFilter === "All") return projects;
-    return projects.filter((project) => project.categories.includes(activeFilter));
-  }, [activeFilter]);
 
   return (
     <section id="projects" className="section section-soft">
       <div className="container">
         <FadeIn>
-          <div className="section-title-row">
+          <header className="section-header">
+            <p className="section-eyebrow">Selected work</p>
             <div className="section-title-with-icon">
               <span className="section-icon section-icon-purple">
                 <IconFolder />
               </span>
               <h2>Projects</h2>
             </div>
-            <a href="#projects" className="section-link">
-              View All Projects
-            </a>
-          </div>
+            <p className="section-lead">
+              Production apps I designed and built end to end — from APIs and data
+              pipelines to customer-facing interfaces.
+            </p>
+          </header>
         </FadeIn>
 
-        <FadeIn delay={50}>
-          <div className="filter-bar" role="tablist" aria-label="Filter projects">
-            {filters.map((filter) => (
-              <button
-                key={filter}
-                type="button"
-                role="tab"
-                aria-selected={activeFilter === filter}
-                className={`filter-btn ${activeFilter === filter ? "active" : ""}`}
-                onClick={() => setActiveFilter(filter)}
-              >
-                {filter}
-              </button>
-            ))}
-          </div>
-        </FadeIn>
-
-        <div className="projects-showcase">
-          {filteredProjects.map((project, index) => {
+        <div className="projects-stack">
+          {projects.map((project, index) => {
             const expanded = expandedId === project.id;
             const previewSrc = withBasePath(project.logo ?? project.image);
             const isLogo = Boolean(project.logo);
+            const previewItems = project.whatIBuilt.slice(0, PREVIEW_COUNT);
+            const hiddenCount = project.whatIBuilt.length - PREVIEW_COUNT;
 
             return (
-              <FadeIn key={project.id} delay={index * 70}>
-                <article className="project-showcase-card">
+              <FadeIn key={project.id} delay={index * 80}>
+                <article className="project-card">
                   <div
-                    className="project-preview"
+                    className="project-card-media"
                     style={
                       project.logoBg
                         ? ({ background: project.logoBg } as React.CSSProperties)
                         : undefined
                     }
                   >
-                    {project.featured ? (
-                      <span className="featured-badge">Featured</span>
-                    ) : null}
                     <Image
                       src={previewSrc}
                       alt={project.imageAlt}
-                      width={isLogo ? 240 : 640}
-                      height={isLogo ? 180 : 360}
-                      className={isLogo ? "project-preview-logo" : "project-preview-image"}
+                      width={isLogo ? 200 : 320}
+                      height={isLogo ? 140 : 200}
+                      className={isLogo ? "project-card-logo" : "project-card-image"}
                     />
                   </div>
 
-                  <div className="project-body">
-                    <div className="project-title-row">
-                      <h3>{project.title}</h3>
-                      {project.liveUrl ? (
-                        <a
-                          href={project.liveUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="project-title-link"
-                          aria-label={`Open ${project.title}`}
-                        >
-                          <IconExternal />
-                        </a>
-                      ) : null}
+                  <div className="project-card-main">
+                    <div className="project-card-top">
+                      <div>
+                        <p className="project-card-role">{project.role}</p>
+                        <h3>{project.title}</h3>
+                      </div>
+                      <div className="project-card-actions">
+                        {project.liveUrl ? (
+                          <a
+                            href={project.liveUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="project-action-btn"
+                          >
+                            Live demo
+                            <IconExternal />
+                          </a>
+                        ) : null}
+                        {project.githubUrl ? (
+                          <a
+                            href={project.githubUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="project-action-btn ghost"
+                          >
+                            Code
+                          </a>
+                        ) : null}
+                      </div>
                     </div>
 
-                    <p className="project-description">{project.description}</p>
+                    <p className="project-card-summary">{project.summary}</p>
 
-                    <div className="badge-row">
+                    <div className="badge-row project-card-tech">
                       {project.technologies.map((tech) => (
                         <TechBadge key={tech} label={tech} />
                       ))}
                     </div>
 
-                    <div className="project-footer">
-                      {project.liveUrl ? (
-                        <a
-                          href={project.liveUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="project-footer-link"
-                        >
-                          Live Demo
-                        </a>
-                      ) : null}
-                      {project.githubUrl ? (
-                        <a
-                          href={project.githubUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="project-footer-link muted"
-                        >
-                          View Code
-                        </a>
-                      ) : null}
+                    <ul className="project-highlights">
+                      {(expanded ? project.whatIBuilt : previewItems).map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+
+                    {hiddenCount > 0 || project.technicalDetail.length > 0 ? (
                       <button
                         type="button"
-                        className="project-footer-link expand-link"
+                        className="project-expand-btn"
                         aria-expanded={expanded}
                         onClick={() =>
                           setExpandedId((current) =>
@@ -138,14 +116,17 @@ export function Projects() {
                           )
                         }
                       >
-                        {expanded ? "Less detail" : "More detail"}
+                        {expanded
+                          ? "Show less"
+                          : `Show ${hiddenCount} more highlights + technical detail`}
                       </button>
-                    </div>
+                    ) : null}
 
                     {expanded ? (
-                      <div className="architecture-panel">
+                      <div className="project-detail-panel">
+                        <p className="project-detail-label">Technical detail</p>
                         <ul>
-                          {project.architecture.map((item) => (
+                          {project.technicalDetail.map((item) => (
                             <li key={item}>{item}</li>
                           ))}
                         </ul>

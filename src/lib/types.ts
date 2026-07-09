@@ -7,18 +7,25 @@ export type ProjectCategory =
   | "Payments"
   | "Data";
 
+export type ExperienceArea = {
+  title: string;
+  bullets: string[];
+};
+
 export type ExperienceEntry = {
   role: string;
   company: string;
   dates: string;
-  bullets: string[];
+  summary: string;
+  areas: ExperienceArea[];
   technologies: string[];
 };
 
 export type Project = {
   id: string;
   title: string;
-  description: string;
+  role: string;
+  summary: string;
   image: string;
   imageAlt: string;
   logo?: string;
@@ -26,8 +33,8 @@ export type Project = {
   featured?: boolean;
   categories: ProjectCategory[];
   technologies: string[];
-  highlights: string[];
-  architecture: string[];
+  whatIBuilt: string[];
+  technicalDetail: string[];
   liveUrl?: string;
   githubUrl?: string;
 };
